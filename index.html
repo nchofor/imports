@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SwiftShip — global freight, parcel delivery, and supply chain logistics. Track shipments and get instant shipping quotes.">
+  <title>SwiftShip — Global Shipping & Logistics Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="utility-bar">
+    <div class="container utility-inner">
+      <span class="utility-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +237 699 123 456
+      </span>
+      <span class="utility-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        info@swiftship.com
+      </span>
+      <a href="track.html" class="utility-link">Track your shipment →</a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="logo" aria-label="SwiftShip home">
+        <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#0a2540"/>
+          <path d="M6 20h20l-3-8H9l-3 8z" fill="#e8912d"/>
+          <circle cx="10" cy="22" r="2" fill="#fff"/>
+          <circle cx="22" cy="22" r="2" fill="#fff"/>
+        </svg>
+        Swift<span>Ship</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#freight">Freight</a></li>
+          <li><a href="#solutions">Services</a></li>
+          <li><a href="#process">How it works</a></li>
+          <li><a href="track.html">Track</a></li>
+          <li><a href="booking.html" class="nav-cta">Get a quote</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="hero" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-grid">
+      <div class="hero-copy" data-reveal>
+        <p class="section-label section-label--light">End-to-end logistics</p>
+        <h1>Global shipping solutions built for your supply chain</h1>
+        <p class="hero-lead">Air, ocean, and road freight with real-time tracking, customs support, and dedicated account management for businesses worldwide.</p>
+        <div class="hero-buttons">
+          <a href="booking.html" class="btn primary-btn">Ship now — get a quote</a>
+          <a href="#freight" class="btn secondary-btn">Explore freight options</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><strong>2M+</strong><span>Parcels delivered</span></div>
+          <div class="stat"><strong>120+</strong><span>Countries</span></div>
+          <div class="stat"><strong>ISO</strong><span>Certified ops</span></div>
+        </div>
+      </div>
+
+      <aside class="track-panel" data-reveal>
+        <div class="track-panel-tabs">
+          <button type="button" class="tab is-active" data-tab="track">Track</button>
+          <button type="button" class="tab" data-tab="quote">Quick estimate</button>
+        </div>
+        <div class="tab-panel is-active" id="panel-track">
+          <h2>Track your shipment</h2>
+          <p>Enter your tracking or booking reference number.</p>
+          <form id="heroTrackForm" class="track-panel-form">
+            <label class="sr-only" for="heroTrackingId">Tracking number</label>
+            <input type="text" id="heroTrackingId" name="trackingId" placeholder="e.g. SS-2847193-CM" required>
+            <button type="submit" class="btn primary-btn btn-block">Track package</button>
+          </form>
+        </div>
+        <div class="tab-panel" id="panel-quote" hidden>
+          <h2>Instant estimate</h2>
+          <form id="quoteEstimator" class="estimator-form">
+            <div class="form-row">
+              <label for="est-origin">From</label>
+              <input type="text" id="est-origin" name="origin" placeholder="City / country" required>
+            </div>
+            <div class="form-row">
+              <label for="est-dest">To</label>
+              <input type="text" id="est-dest" name="destination" placeholder="City / country" required>
+            </div>
+            <div class="form-row form-row--half">
+              <div>
+                <label for="est-weight">Weight (kg)</label>
+                <input type="number" id="est-weight" name="weight" min="0.1" step="0.1" value="5" required>
+              </div>
+              <div>
+                <label for="est-service">Service</label>
+                <select id="est-service" name="service">
+                  <option value="standard">Standard</option>
+                  <option value="express">Express</option>
+                  <option value="freight">Freight</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn primary-btn btn-block">Calculate rate</button>
+          </form>
+          <div id="estimateResult" class="estimate-result" hidden></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="trust-bar">
+    <div class="container trust-inner">
+      <div class="trust-item" data-reveal>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Fully insured cargo</span>
+      </div>
+      <div class="trust-item" data-reveal>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span>Real-time GPS tracking</span>
+      </div>
+      <div class="trust-item" data-reveal>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span>Customs documentation</span>
+      </div>
+      <div class="trust-item" data-reveal>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>24/7 support desk</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="freight" class="freight section">
+    <div class="container">
+      <p class="section-label" data-reveal>Freight modes</p>
+      <h2 data-reveal>Ship by air, sea, or road</h2>
+      <p class="section-intro" data-reveal>Choose the right transport mode for your cargo type, budget, and delivery window.</p>
+      <div class="freight-grid">
+        <article class="freight-card" data-reveal>
+          <div class="freight-icon freight-icon--air">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </div>
+          <h3>Air freight</h3>
+          <p>Fast international delivery for time-sensitive and high-value goods. 2–5 business days typical.</p>
+          <ul>
+            <li>Express &amp; economy tiers</li>
+            <li>Door-to-door available</li>
+          </ul>
+          <a href="booking.html" class="freight-link">Get air quote →</a>
+        </article>
+        <article class="freight-card" data-reveal>
+          <div class="freight-icon freight-icon--sea">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.5 0 2.5 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.24"/><path d="M12 2v8"/></svg>
+          </div>
+          <h3>Ocean freight</h3>
+          <p>Cost-effective FCL and LCL container shipping for bulk cargo and commercial imports.</p>
+          <ul>
+            <li>Full &amp; partial containers</li>
+            <li>Port-to-port or door delivery</li>
+          </ul>
+          <a href="booking.html" class="freight-link">Get ocean quote →</a>
+        </article>
+        <article class="freight-card" data-reveal>
+          <div class="freight-icon freight-icon--road">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-3"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <h3>Road freight</h3>
+          <p>Regional trucking and last-mile delivery across cities and cross-border corridors.</p>
+          <ul>
+            <li>FTL &amp; LTL options</li>
+            <li>Temperature-controlled</li>
+          </ul>
+          <a href="booking.html" class="freight-link">Get road quote →</a>
+        </article>
+        <article class="freight-card" data-reveal>
+          <div class="freight-icon freight-icon--warehouse">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Warehousing</h3>
+          <p>Secure storage, inventory management, and fulfillment to complete your supply chain.</p>
+          <ul>
+            <li>Pick &amp; pack services</li>
+            <li>Cross-docking</li>
+          </ul>
+          <a href="contact.html" class="freight-link">Contact sales →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="process section section--muted">
+    <div class="container">
+      <p class="section-label" data-reveal>How it works</p>
+      <h2 data-reveal>From quote to delivery in four steps</h2>
+      <ol class="process-steps">
+        <li class="process-step" data-reveal>
+          <span class="step-num">01</span>
+          <h3>Request a quote</h3>
+          <p>Share origin, destination, weight, and cargo type. Receive a tailored rate within 24 hours.</p>
+        </li>
+        <li class="process-step" data-reveal>
+          <span class="step-num">02</span>
+          <h3>Book &amp; schedule pickup</h3>
+          <p>Confirm your shipment. We arrange collection from your warehouse or office.</p>
+        </li>
+        <li class="process-step" data-reveal>
+          <span class="step-num">03</span>
+          <h3>Track in real time</h3>
+          <p>Monitor every milestone — hub scans, customs, and transit updates on your dashboard.</p>
+        </li>
+        <li class="process-step" data-reveal>
+          <span class="step-num">04</span>
+          <h3>Delivered &amp; confirmed</h3>
+          <p>Proof of delivery and documentation for your records and compliance needs.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="about section" id="about">
+    <div class="container about-container">
+      <div class="about-image" data-reveal>
+        <img src="images/pro.jpg" alt="SwiftShip logistics team at distribution hub">
+        <div class="about-badge">
+          <strong>15+</strong>
+          <span>Years in logistics</span>
+        </div>
+      </div>
+      <div class="about-text" data-reveal>
+        <p class="section-label">About SwiftShip</p>
+        <h2>Your partner in global freight &amp; parcel logistics</h2>
+        <p>We help importers, exporters, and e-commerce brands move goods reliably across borders. Our network spans major ports, airports, and distribution hubs with integrated customs brokerage.</p>
+        <ul class="check-list">
+          <li>Dedicated account managers for B2B clients</li>
+          <li>Carbon-conscious routing options</li>
+          <li>API integration for shipment data</li>
+        </ul>
+        <a href="contact.html" class="btn primary-btn">Talk to our team</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="partners section section--dark" id="partners">
+    <div class="container">
+      <p class="section-label section-label--light">Network partners</p>
+      <h2 class="text-light">Trusted carrier integrations</h2>
+      <p class="partners-intro">Integrated with leading global carriers for seamless freight forwarding.</p>
+      <div class="partners-track">
+        <div class="partners-slider">
+          <article class="partner-card partner-card--dhl">
+            <div class="partner-mark" aria-hidden="true">DHL</div>
+            <div class="partner-details">
+              <strong class="partner-name">DHL</strong>
+              <span class="partner-tag">Express &amp; Parcel</span>
+            </div>
+          </article>
+          <article class="partner-card partner-card--maersk">
+            <div class="partner-mark" aria-hidden="true">M</div>
+            <div class="partner-details">
+              <strong class="partner-name">Maersk</strong>
+              <span class="partner-tag">Ocean Freight</span>
+            </div>
+          </article>
+          <article class="partner-card partner-card--fedex">
+            <div class="partner-mark" aria-hidden="true">FDX</div>
+            <div class="partner-details">
+              <strong class="partner-name">FedEx</strong>
+              <span class="partner-tag">Global Courier</span>
+            </div>
+          </article>
+          <article class="partner-card partner-card--ups">
+            <div class="partner-mark" aria-hidden="true">UPS</div>
+            <div class="partner-details">
+              <strong class="partner-name">UPS</strong>
+              <span class="partner-tag">Logistics &amp; Freight</span>
+            </div>
+          </article>
+          <article class="partner-card partner-card--cma">
+            <div class="partner-mark" aria-hidden="true">CMA</div>
+            <div class="partner-details">
+              <strong class="partner-name">CMA CGM</strong>
+              <span class="partner-tag">Container Shipping</span>
+            </div>
+          </article>
+          <article class="partner-card partner-card--evergreen">
+            <div class="partner-mark" aria-hidden="true">EM</div>
+            <div class="partner-details">
+              <strong class="partner-name">Evergreen</strong>
+              <span class="partner-tag">Marine Transport</span>
+            </div>
+          </article>
+          <!-- duplicated for infinite scroll -->
+          <article class="partner-card partner-card--dhl" aria-hidden="true">
+            <div class="partner-mark" aria-hidden="true">DHL</div>
+            <div class="partner-details">
+              <strong class="partner-name">DHL</strong>
+              <span class="partner-tag">Express &amp; Parcel</span>
+            </div>
+          </article>
+          <article class="partner-card partner-card--maersk" aria-hidden="true">
+            <div class="partner-mark" aria-hidden="true">M</div>
+            <div class="partner-details">
+              <strong class="partner-name">Maersk</strong>
+              <span class="partner-tag">Ocean Freight</span>
+            </div>
+          </article>
+          <article class="partner-card partner-card--fedex" aria-hidden="true">
+            <div class="partner-mark" aria-hidden="true">FDX</div>
+            <div class="partner-details">
+              <strong class="partner-name">FedEx</strong>
+              <span class="partner-tag">Global Courier</span>
+            </div>
+          </article>
+          <article class="partner-card partner-card--ups" aria-hidden="true">
+            <div class="partner-mark" aria-hidden="true">UPS</div>
+            <div class="partner-details">
+              <strong class="partner-name">UPS</strong>
+              <span class="partner-tag">Logistics &amp; Freight</span>
+            </div>
+          </article>
+          <article class="partner-card partner-card--cma" aria-hidden="true">
+            <div class="partner-mark" aria-hidden="true">CMA</div>
+            <div class="partner-details">
+              <strong class="partner-name">CMA CGM</strong>
+              <span class="partner-tag">Container Shipping</span>
+            </div>
+          </article>
+          <article class="partner-card partner-card--evergreen" aria-hidden="true">
+            <div class="partner-mark" aria-hidden="true">EM</div>
+            <div class="partner-details">
+              <strong class="partner-name">Evergreen</strong>
+              <span class="partner-tag">Marine Transport</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="solutions" class="solutions section">
+    <div class="container">
+      <p class="section-label" data-reveal>Shipping services</p>
+      <h2 data-reveal>Solutions for every shipment type</h2>
+      <div class="solution-cards">
+        <article class="card" data-reveal>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&q=80" alt="Parcel delivery">
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Parcel</span>
+            <h3>Domestic &amp; regional parcels</h3>
+            <p>Same-day and next-day parcel delivery with signature confirmation.</p>
+          </div>
+        </article>
+        <article class="card" data-reveal>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1494412574642-9fae35e0e457?w=600&q=80" alt="International shipping">
+          </div>
+          <div class="card-body">
+            <span class="card-tag">International</span>
+            <h3>Cross-border freight</h3>
+            <p>Full customs clearance, duties guidance, and bonded warehousing.</p>
+          </div>
+        </article>
+        <article class="card" data-reveal>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80" alt="Express logistics">
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Express</span>
+            <h3>Time-critical express</h3>
+            <p>Priority lanes for urgent medical, industrial, and retail shipments.</p>
+          </div>
+        </article>
+        <article class="card" data-reveal>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80" alt="Cargo handling">
+          </div>
+          <div class="card-body">
+            <span class="card-tag">Cargo</span>
+            <h3>Heavy &amp; bulk cargo</h3>
+            <p>Palletized freight, project cargo, and specialized handling equipment.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="estimations" class="estimations section estimations-cta">
+    <div class="container estimations-inner" data-reveal>
+      <div>
+        <p class="section-label section-label--light">Ready to ship?</p>
+        <h2>Get a detailed freight quote today</h2>
+        <p>Commercial rates, volume discounts, and dedicated routing for recurring shipments.</p>
+      </div>
+      <div class="estimations-actions">
+        <a href="booking.html" class="btn primary-btn">Request full quote</a>
+        <a href="track.html" class="btn secondary-btn">Track existing shipment</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog" class="blog section section--muted">
+    <div class="container">
+      <p class="section-label" data-reveal>Logistics insights</p>
+      <h2 data-reveal>Shipping news &amp; guides</h2>
+      <div class="blog-cards">
+        <article class="blog-card" data-reveal>
+          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80" alt="Warehouse packaging">
+          <div class="blog-card-body">
+            <time datetime="2025-05-12">May 12, 2025</time>
+            <h3>How to prepare freight for international export</h3>
+            <p>Packaging standards, HS codes, and documentation checklist.</p>
+            <a href="#" class="read-more">Read guide →</a>
+          </div>
+        </article>
+        <article class="blog-card" data-reveal>
+          <img src="https://images.unsplash.com/photo-1578575437136-821efdad9d63?w=600&q=80" alt="Container ship">
+          <div class="blog-card-body">
+            <time datetime="2025-04-28">Apr 28, 2025</time>
+            <h3>Air vs ocean freight: which to choose?</h3>
+            <p>Compare cost, speed, and carbon impact for your cargo profile.</p>
+            <a href="#" class="read-more">Read guide →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="subscribe" class="subscribe section">
+    <div class="container subscribe-inner" data-reveal>
+      <div class="subscribe-copy">
+        <p class="section-label">Newsletter</p>
+        <h2>Logistics updates for shippers</h2>
+        <p>Rate alerts, customs changes, and industry news — monthly.</p>
+      </div>
+      <form id="subscribeForm" class="subscribe-form">
+        <input type="email" placeholder="Work email address" required aria-label="Email">
+        <button type="submit" class="btn primary-btn">Subscribe</button>
+      </form>
+      <p id="subscribeMsg" class="subscribe-msg" role="status"></p>
+    </div>
+  </section>
+
+  <footer id="contact" class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Swift<span>Ship</span></a>
+        <p>Global shipping, freight forwarding, and supply chain solutions for growing businesses.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#freight">Air freight</a></li>
+          <li><a href="#freight">Ocean freight</a></li>
+          <li><a href="#freight">Road freight</a></li>
+          <li><a href="track.html">Track shipment</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#blog">Insights</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Head office</h4>
+        <p>123 Transport Avenue<br>Douala, Cameroon</p>
+        <p><a href="mailto:info@swiftship.com">info@swiftship.com</a></p>
+        <p><a href="tel:+237699123456">+237 699 123 456</a></p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2025 SwiftShip Logistics. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    /* Hero panel tabs */
+    document.querySelectorAll('.track-panel-tabs .tab').forEach((tab) => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.track-panel-tabs .tab').forEach((t) => t.classList.remove('is-active'));
+        document.querySelectorAll('.tab-panel').forEach((p) => { p.classList.remove('is-active'); p.hidden = true; });
+        tab.classList.add('is-active');
+        const panel = document.getElementById('panel-' + tab.dataset.tab);
+        panel.classList.add('is-active');
+        panel.hidden = false;
+      });
+    });
+  </script>
+</body>
+</html>

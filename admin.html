@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — SwiftShip</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="index.html" class="logo">Swift<span>Ship</span> Admin</a>
+      <a href="index.html" class="utility-link">← View website</a>
+    </div>
+  </header>
+
+  <main class="admin-page">
+    <section id="loginSection" class="admin-login">
+      <h1>Admin login</h1>
+      <p>Manage quotes, messages, and shipment tracking.</p>
+      <form id="loginForm">
+        <label for="adminPassword">Password</label>
+        <input type="password" id="adminPassword" placeholder="Admin password" required autocomplete="current-password">
+        <button type="submit" class="btn primary-btn btn-block">Log in</button>
+      </form>
+      <p id="loginMessage" class="form-result" role="alert"></p>
+      <p class="form-hint">Default password: <code>swiftship2025</code> — change in <code>.env</code></p>
+    </section>
+
+    <div id="dashboard" class="admin-dashboard" hidden>
+      <div class="admin-toolbar">
+        <h1>Dashboard</h1>
+        <button type="button" id="logoutBtn" class="btn secondary-btn">Log out</button>
+      </div>
+
+      <div class="admin-tabs">
+        <button type="button" class="admin-tab is-active" data-panel="quotes">Quote requests</button>
+        <button type="button" class="admin-tab" data-panel="contacts">Messages</button>
+        <button type="button" class="admin-tab" data-panel="shipments">Shipments</button>
+        <button type="button" class="admin-tab" data-panel="new-shipment">+ New shipment</button>
+      </div>
+
+      <div id="panel-quotes" class="admin-panel is-active">
+        <div id="quotesList" class="admin-list"></div>
+      </div>
+
+      <div id="panel-contacts" class="admin-panel" hidden>
+        <div id="contactsList" class="admin-list"></div>
+      </div>
+
+      <div id="panel-shipments" class="admin-panel" hidden>
+        <div id="shipmentsList" class="admin-list"></div>
+      </div>
+
+      <div id="panel-new-shipment" class="admin-panel" hidden>
+        <form id="newShipmentForm" class="shipping-form admin-form">
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="ns-tracking">Tracking ID (optional)</label>
+              <input type="text" id="ns-tracking" name="trackingId" placeholder="Auto-generated if empty">
+            </div>
+            <div class="form-row">
+              <label for="ns-origin">Origin</label>
+              <input type="text" id="ns-origin" name="origin" required placeholder="Douala, Cameroon">
+            </div>
+            <div class="form-row">
+              <label for="ns-dest">Destination</label>
+              <input type="text" id="ns-dest" name="destination" required placeholder="Paris, France">
+            </div>
+            <div class="form-row">
+              <label for="ns-recipient">Recipient name</label>
+              <input type="text" id="ns-recipient" name="recipientName">
+            </div>
+            <div class="form-row">
+              <label for="ns-email">Recipient email</label>
+              <input type="email" id="ns-email" name="recipientEmail">
+            </div>
+          </div>
+          <button type="submit" class="btn primary-btn">Create shipment</button>
+          <p id="newShipmentResult" class="form-result"></p>
+        </form>
+
+        <hr class="admin-divider">
+
+        <h3>Add tracking update</h3>
+        <form id="addEventForm" class="shipping-form admin-form">
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="ev-shipment">Shipment ID</label>
+              <input type="number" id="ev-shipment" name="shipmentId" required placeholder="From list above">
+            </div>
+            <div class="form-row">
+              <label for="ev-status">Status</label>
+              <input type="text" id="ev-status" name="status" required placeholder="In transit">
+            </div>
+            <div class="form-row">
+              <label for="ev-location">Location</label>
+              <input type="text" id="ev-location" name="location" required>
+            </div>
+            <div class="form-row">
+              <label for="ev-time">Date & time</label>
+              <input type="text" id="ev-time" name="eventTime" placeholder="2025-05-30 10:00 or Pending">
+            </div>
+          </div>
+          <label class="admin-checkbox">
+            <input type="checkbox" name="isCurrent" checked> Mark as current status
+          </label>
+          <button type="submit" class="btn primary-btn">Add update</button>
+          <p id="addEventResult" class="form-result"></p>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
